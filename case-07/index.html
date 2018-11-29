@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器Filters</title>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--原文本-->
+			<p>原文本:{{message}}</p>
+			<!--转换大写字母-->
+			<p>转换大写字母:{{message | upperCase}}</p>
+			<!--原文本-->
+			<p>原文本:{{msg}}</p>
+			<!--转换小写字母-->
+			<p>转换小写字母:{{message | lowerCase}}</p>
+			<!--原数字-->
+			<p>{{num}}</p>
+			<!--原数字+1-->
+			<p>{{num | add}}</p>
+		</div>
+		<script>
+			new Vue({
+				el:"#app",
+				data:{
+					message:"vue filters",
+					msg:"VUE FILTERS",
+					num:1
+				},
+				filters:{
+					upperCase: function(value){
+						return value.toUpperCase();
+					},
+					lowerCase: function(value){
+						return value.toLowerCase();
+					},
+					add: function(value){
+						return value+1;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
