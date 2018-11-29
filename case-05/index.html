@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件</title>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<!--v-on:keydown/keyup/click/dbclick/load/etd.-->
+		<div id="app">
+			<!--+1-->
+			<button v-on:click="count += 1">+1</button>
+			<p>count:{{count}}</p>
+			<!--method-->
+			<button v-on:click="name">name</button>
+			<!--method(param)-->
+			<button v-on:click="say('Hi')">Say Hi</button>
+			<!--change-->
+			<input v-on:change="showVal"/>
+		</div>
+		<script>
+			var myApp = new Vue({
+				el:"#app",
+				data:{
+					count:0
+				},
+				methods:{
+					name:function(){
+						alert("jhon");
+					},
+					say:function(msg){
+						alert(msg);
+					},
+					showVal:function(event){
+						alert(event.target.value);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
