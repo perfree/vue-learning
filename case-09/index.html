@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>观察属性watch</title>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<span>单价:{{price}}</span><br>
+			<span>数量:{{num}}</span><br>
+			<button @click="addPrice(100)">加价100</button><br>
+			<span>合计:{{sum}}</span><br>
+		</div>
+		<script>
+			new Vue({
+				el:"#app",
+				data:{
+					price:200,
+					num:5,
+					sum:1000
+				},
+				watch: {
+					price: function(){
+						this.sum = this.price*this.num;
+					}
+				},
+				methods:{
+					addPrice: function(addPrice){
+						this.price += addPrice;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
