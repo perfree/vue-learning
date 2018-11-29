@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>循环语句</title>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--v-for-->
+			<ol>
+				<li v-for="item in items">{{item.title}}</li>
+			</ol>
+			<!--v-for show index-->
+			<ul>
+				<li v-for="(msg, index) in msgs">{{index}}-{{msg.context}}</li>
+			</ul>
+			<!--v-for  object.value-->
+			<ul>
+				<li v-for="value in object">{{value}}</li>
+			</ul>
+			<!--v-for  object.key:object.value-->
+			<ul>
+				<li v-for="(value, key) in object">{{key}}:{{value}}</li>
+			</ul>
+			<!--v-for  index. object.key:object.value-->
+			<ul>
+				<li v-for="(value, key, index) in object">{{index}}. {{key}}:{{value}}</li>
+			</ul>
+		</div>
+		<script>
+			var myApp = new Vue({
+				el:"#app",
+				data:{
+					items:[
+						{title:"A"},
+						{title:"B"}
+					],
+					msgs:[
+						{context:"A"},
+						{context:"B"}
+					],
+					object:{
+						name:"john",
+						age:20
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

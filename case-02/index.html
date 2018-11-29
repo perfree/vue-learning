@@ -7,15 +7,24 @@
 	</head>
 	<body>
 		<div id="app">
+			<!-- if语句 -->
 			<p v-if="flag">true</p>
-			<p v-if="state">false</p>
+			<!--if else-->
+			<p v-if="state">yes</p>
+			<p v-else>no</p>
+			<!-- if    else    else if -->
+			<p v-if="num === 1">1</p>
+			<p v-else-if="num === 2">2</p>
+			<p v-else-if="num === 3">3</p>
+			<p v-else>not 1/2/3</p>
 		</div>
 		<script>
 			var myApp = new Vue({
 				el:"#app",
 				data:{
 					flag:true,
-					state:false
+					state:false,
+					num:2
 				}
 			})
 		</script>
