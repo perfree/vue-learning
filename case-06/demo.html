@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义组件demo-tab选项卡</title>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button v-for="tab in tabs" v-on:click="currentTab = tab">{{tab}}</button>
+			<component v-bind:is="componentName"></component>
+		</div>
+		<script>
+			Vue.component('home',{
+				template:'<div>this is Home</div>'
+			})
+			Vue.component('classify',{
+				template:'<div>this is classify</div>'
+			})
+			Vue.component('news',{
+				template:'<div>this is news</div>'
+			})
+			Vue.component('abourt',{
+				template:'<div>this is abourt</div>'
+			})
+			new Vue({
+				el:"#app",
+				data:{
+					currentTab:"Home",
+					tabs:["Home","Classify","News","Abourt"]
+				},
+				computed: {
+					componentName: function () {
+					  return this.currentTab.toLowerCase()
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
