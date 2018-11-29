@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>设置计算属性setter</title>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<!--设置计算属性，同步更新元数据的值。-->
+		<div id="app">
+			<span>单价:{{price}}</span><br>
+			<span>数量:{{num}}</span><br>
+			<button @click="addPrice(100)">加价100</button><br>
+			<span>合计:{{sum}}</span><br>
+		</div>
+		<script>
+			new Vue({
+				el:"#app",
+				data:{
+					price:200,
+					num:5
+				},
+				computed:{
+					price:{
+						get:function(){
+							return this.price;
+						},
+						set:function(value){
+							this.price + value;
+						}
+					},
+					sum:function(){
+						return this.price * this.num;
+					}
+				},
+				methods:{
+					addPrice:function(addNum){
+						this.price += addNum;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
